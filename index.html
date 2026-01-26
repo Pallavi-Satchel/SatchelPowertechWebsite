@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Satchel Powertech</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header-wrapper">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="logo">
+      <img src="Logo.png" alt="Solar Powertech">
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+      <div class="menu-header">
+        <div class="menu-logo">
+          <img src="Logo.png" alt="Logo" loading="eager">
+        </div>
+        <span class="close-btn" onclick="closeMenu()">✕</span>
+      </div>
+
+      <li><a href="#home" onclick="closeMenu()">Home</a></li>
+      <li><a href="#customer-about" onclick="closeMenu()">About</a></li>
+      <li><a href="#customer-services" onclick="closeMenu()">Services</a></li>
+      <li><a href="#price-quote" onclick="closeMenu()">Pricing</a></li>
+      <li><a href="dealership.html" onclick="closeMenu()">Dealer?</a></li>
+      <li><a href="#Contact" onclick="closeMenu()">Contact</a></li>
+
+    </ul>
+  </nav>
+
+  <!-- Dealership Page -->
+  <div class="top-marquee" id="topMarquee">
+  <a href="dealership.html" class="marquee-link">
+    Seeking Dealership?
+    <span class="click-here">
+      <span class="hand">👉</span> Click here
+    </span>
+  </a>
+
+  <span class="marquee-close" onclick="closeMarquee(event)">✕</span>
+</div>
+</header>
+
+<!-- Page Sections-->
+<section id="home">
+<div class="home-bg">
+<img src="home_bg.jpg" alt = "Solar Power"/>
+</div>
+
+<!-- Wrap content in a flex container -->
+<div class="home-content">
+<div class="home-text">
+<h1>Power Your Home with Solar Energy</h1>
+<p>Clean, efficient, and cost-saving installations.</p>
+</div>
+
+<div class="form-container">
+<h2>Book a Free Visit Today!</h2>
+<form class="booking-form" method = "POST" action = "https://script.google.com/macros/s/AKfycbwOvF_PUbB9Mnz5SQUr-VXwSw9AfE3h4P5P1UgvAg1ED6HW1NyDEUYAlKmQ9wVPyx4FBw/exec">
+<input type="hidden" name="form_type" value="visit_booking">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<input type="tel" name="phone" placeholder="Your Phone Number" required>
+<input type="text" name="address" placeholder="Address for Installation" required>
+<textarea name="message" placeholder="Additional Details"></textarea>
+<!-- CONSENT -->
+<div class="consent">
+    <label class="consent-label">
+        <input type="checkbox" name="consent" required>
+        <span>
+        By clicking Submit, I hereby confirm that the information provided above is true and correct to the best of my knowledge. I expressly consent to Satchel Powertech Pvt. Ltd. collecting, storing, processing, and using my personal and business information for the purpose of evaluating Dealership /Channel Partner opportunities, business communication, and marketing related to solar and renewable energy products, in accordance with the Privacy Policy and applicable laws of India.
+        <a data-link="privacyPolicy" target="_blank">Privacy Policy</a>.
+        </span>
+    </label>
+</div>
+<button type="submit">Book Now</button>
+</form>
+</div>
+</div>
+</section>
+
+<section id="customer-about">
+    <h1 class="section-title">About Us</h1>
+        <div class="about-container-customer">
+        <div class="about-box-customer">
+            <img src="https://img.icons8.com/ios-filled/50/checkmark--v1.png" alt="Trust Icon" />
+        <div>
+            <h2>TRUST &<br>RELIABILITY</h2>
+            <p>Satchel Powertech is an authorized channel partner of Redington. Redington is an USD 9.9 Billion, AA+ Rated Public Listed Company with operations in more than 30 Countries. You can trust on Redington to last for the many years to come to support your investment.</p>
+            </div>
+            </div>
+            <div class="about-box-customer">
+            <img src="https://img.icons8.com/warranty" alt="Warranty Icon" />
+            <div>
+            <h2>LONG-TERM<br>WARRANTY</h2>
+            <p>10 years defects liability Warranty and 25 years Performance Warranty on the Solar Modules. The Solar Inverters come with a full 7 Years Warranty.</p>
+            </div>
+            </div>
+            <div class="about-box-customer">
+            <img src="https://img.icons8.com/ios/50/solar-panel.png" alt="Custom System Icon" />
+            <div>
+            <h2>CUSTOMIZED<br>SOLAR PV SYSTEM</h2>
+            <p>Customization and Installation of a High-Quality Solar PV System to suit your needs. Each component including the Solar Panels, Inverter and Battery are of the best caliber.</p>
+            </div>
+            </div>
+            <div class="about-box-customer">
+            <img src="https://img.icons8.com/ios/50/conference-call.png" alt="Team Icon" />
+            <div>
+            <h2>HIGHLY SKILLED &<br>EXPERIENCED TEAM</h2>
+            <p>Satchel Powertech ensures all your interactions with us are worth your time and money. We employ the best people in the business to give you the best Solar experience. With Partners that boast of over 20 years of experience you can see why we grew so fast and so well.</p>
+            </div>
+            </div>
+        </div>
+</section>
+
+<div class="image-row">
+<img src="solar_panel_image.jpg" alt="Solar Panel">
+<img src="solar_panel_image1.jpg" alt="Solar Panel">
+<img src="solar_panel_image2.jpg" alt="Solar Panel">
+</div>
+
+<section id="customer-services">
+<h1 class="section-title">Our Services</h1>
+<div class="services-container-customer">
+
+<div class="service-step-customer">
+<img src="https://img.icons8.com/ios/50/home.png" alt="Site Survey" />
+<h2>Site Survey</h2>
+<p>We start with a detailed on-site assessment to evaluate your roof structure, energy needs, and feasibility for solar panel installation.</p>
+</div>
+
+<div class="service-step-customer">
+<img src="https://img.icons8.com/ios/50/solar-panel.png" alt="Final Design" />
+<h2>Final Design</h2>
+<p>Our expert engineers design a customized solar PV system tailored to your energy requirements and site conditions.</p>
+</div>
+
+<div class="service-step-customer">
+<img src="https://img.icons8.com/ios/50/agreement.png" alt="Approvals" />
+<h2>Approvals</h2>
+<p>We handle all government, utility, and net-metering approvals and documentation to ensure a smooth installation process.</p>
+</div>
+
+<div class="service-step-customer">
+<img src="tools.png" alt="Installation" />
+<h2>Installation</h2>
+<p>Our certified technicians install your solar system using high-quality equipment, ensuring safety and durability.</p>
+</div>
+
+<div class="service-step-customer">
+<img src="https://img.icons8.com/ios/50/inspection.png" alt="Inspection" />
+<h2>Inspection</h2>
+<p>We perform a thorough inspection to make sure everything is working perfectly and meets all regulatory standards.</p>
+</div>
+
+<div class="service-step-customer">
+<img src="https://img.icons8.com/ios/50/electrical.png" alt="Utility Connection" />
+<h2>Utility Connection</h2>
+<p>We coordinate with your electricity provider to connect your solar system to the grid for efficient power generation and usage.</p>
+</div>
+
+<div class="service-step-customer">
+<img src="https://img.icons8.com/ios/50/sun.png" alt="Power On" />
+<h2>Power On</h2>
+<p>Your solar system goes live! Start generating clean, green energy and enjoy significant savings on your electricity bills.</p>
+</div>
+
+</div>
+</section>
+
+<section id="makes-certificates">
+<h1 class="section-title">Makes and Certificates</h1>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>SN</th>
+<th>Details</th>
+<th>Make</th>
+<th>Certifications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Solar Modules</td>
+<td>Vikram Solar / Navitas Solar / Credence / Equivalent</td>
+<td>IEC 61215/ IS 1486, IEC 61730part 1 & 2,<br>IEC 61701 / IS 6170 / BIS Certified</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Solar Inverter</td>
+<td>Growatt / FoxEss</td>
+<td>IEC/IS 61683 and IEC 60068-2(1,2,14,30)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Module Mounting Structure</td>
+<td>HDGI Elevated Structure</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>4</td>
+<td>DC & AC Distribution Box</td>
+<td>Geessy/ Equivalent</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>5</td>
+<td>LT Panel</td>
+<td>Reputed Brand</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>6</td>
+<td>AC & DC Cables</td>
+<td>Polycab / Havells/ Seibem</td>
+<td>IEC 60227/IS 697, IEC 60502/IS1554 & IS/IEC 69947</td>
+</tr>
+<tr>
+<td>7</td>
+<td>DC & AC Protection Devices</td>
+<td>Reputed Brand</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Lightning Arrestor</td>
+<td>Standard Type</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Chemical Earthing Kits</td>
+<td>2m * 50mm with Chemical Compound</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Plant Monitoring</td>
+<td>In-built or External Device with Web/Mobile</td>
+<td>Integration to Local LAN (or) WIFI and logs via web Portal</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Others</td>
+<td>Lugs, Connectors, Nut bolts, SS Fasteners, Cable Ties, Fire Safety, & Danger Sign boards</td>
+<td>Standard</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="warranty-info">
+<ul>
+<li>✔️ High-efficiency Solar Inverters with 7 Years manufacturing Warranty.</li>
+<li>✔️ 10 Years defect liability Warranty and 25 Years performance Warranty on Solar PV Modules.</li>
+<li>✔️ 1 Year of Standard System Service Warranty & Additional AMC to be signed after completion of 1 Year.</li>
+</ul>
+</div>
+</section>
+
+<section id="brand-partners" class="info-section">
+<h1 class="section-title">Key Brand Partnerships</h1>
+<h3>Satchel Powertech is authorized channel partner of Redington India</h3>
+<img src="redington.png" alt="Redington Partners" class="responsive-img">
+</section>
+
+<section id="price-quote" class="info-section">
+<h1 class="section-title">Price Quote</h1>
+<h3>Assuming a 10KW Solar Panel is installed</h3>
+<table class="styled-table">
+<thead>
+<tr>
+<th>Description</th>
+<th>Total Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Design, Supply, Installation of 10KW Solar PV Plant</td>
+          <td>₹ 410,000.00</td>
+</tr>
+<tr>
+          <td>GST @ 8.9%</td>
+          <td>₹ 36,490.00</td>
+</tr>
+<tr>
+<td><strong>Total Project Cost</strong></td>
+          <td><strong>₹ 446,490.00</strong></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>Financial Summary</h2>
+
+<div class="summary-grid">
+<div class="summary-card">
+<h4>Monthly Savings</h4>
+<p>₹ 9,180</p>
+</div>
+<div class="summary-card">
+<h4>Yearly Savings</h4>
+<p>₹ 1,11,690</p>
+</div>
+<div class="summary-card">
+<h4>25-Year Savings</h4>
+<p>₹ 27,92,250</p>
+</div>
+</div>
+<div class="summary-note">
+<p>Estimated CO2 savings = 146 trees/year 🌳</p>
+</div>
+</section>
+
+<section id="Contact">
+<h1 class="section-title">Contact Us</h1>
+
+<div class="contact-wrapper">
+<div class="contact-info">
+<div class="contact-item">
+<img src="website.png" alt="Website Icon" />
+<strong>Website:</strong>
+<span>www.satchelpower.com</span>
+</div>
+
+<div class="contact-item">
+<img src="https://img.icons8.com/ios-filled/30/phone.png" alt="Phone Icon" />
+<strong>Phone:</strong>
+<span>+91 88004 06355 / +91 93117 16926</span>
+</div>
+
+<div class="contact-item">
+<img src="email.png" alt="Email Icon" />
+<strong>Email:</strong>
+<span>Info@SatchelPower.com</span>
+</div>
+
+<div class="contact-item">
+<img src="https://img.icons8.com/ios-filled/30/marker.png" alt="Location Icon" />
+<strong>Office Address:</strong>
+<span>
+Satchel Powertech Pvt. Ltd, Office No. A 409,<br>
+Plot No. 4, Noida-Greater Noida Expressway,<br>
+Sector - 132, Noida, UP - 201304
+</span>
+</div>
+</div>
+
+</div>
+  <!-- Footer / Copyright -->
+  <footer class="contact-footer">
+    &copy; 2026 Satchel Powertech Pvt. Ltd. All Rights Reserved.
+  </footer>
+</section>
+<script src="assets/js/links.js"></script>
+<script src="script.js"></script>
+  <a 
+  id="whatsappLinkCustomer"
+  href="#"
+  class="whatsapp-float"
+  target="_blank"
+>
+  <img src="WhatsappLogo.webp" alt="WhatsApp Chat">
+</a>
+</body>
+</html>

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Satchel Powertech</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--https://www.hitachi-hirel.com/products/grid-tied-solar-inverters/central-outdoor-inverter-->
+<header class="header-wrapper">
+  <!--Navigation Bar-->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="Logo.png" alt="Solar Powertech">
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+      <div class="menu-header">
+        <div class="menu-logo">
+          <img src="Logo.png" alt="Logo" loading="eager">
+        </div>
+        <span class="close-btn" onclick="closeMenu()">✕</span>
+      </div>
+
+      <li><a href="#home" onclick="closeMenu()">Home</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#dealership-form" onclick="closeMenu()">Dealership Form</a></li>
+      <li class="dropdown">
+      <a href="#hitachi-inverters" class="dropbtn">
+        Hitachi ▾
+      </a>
+      <ul class="dropdown-content">
+        <li><a href="#string-inverters" onclick="closeMenu()">String Inverters</a></li>
+        <li><a href="#central-inverters" onclick="closeMenu()">Central Inverters</a></li>
+      </ul>
+    </li>
+      <li><a href="#services" onclick="closeMenu()">Services</a></li>
+      <li><a href="#references" onclick="closeMenu()">References</a></li>
+      <li><a href="#deployments" onclick="closeMenu()">Deployments</a></li>
+      <li><a href="#downloads" onclick="closeMenu()">Downloads</a></li>
+      <li><a href="index.html" onclick="closeMenu()">Customer?</a></li>
+      <li><a href="#Contact" onclick="closeMenu()">Contact</a></li>
+
+    </ul>
+  </nav>
+
+  <!-- Customer Page -->
+  <div class="top-marquee" id="topMarquee">
+  <a href="index.html" class="marquee-link">
+    Are you a customer?
+    <span class="click-here">
+      <span class="hand">👉</span> Click here
+    </span>
+  </a>
+
+  <span class="marquee-close" onclick="closeMarquee(event)">✕</span>
+</div>
+</header>
+
+  <!-- Page Sections-->
+  <section id="home">
+    <div class="home-bg">
+      <img src="home_bg.jpg" alt = "Solar Power"/>
+    </div>
+
+    <!-- Wrap content in a flex container -->
+      <div class="home-content">
+        <div class="home-text">
+          <h1>Become our Dealership Partner Today!</h1>
+        </div>
+      </div>
+  </section>
+
+  <section id="about">
+  <h1 class="section-title">About Us</h1>
+
+  <div class="about-container">
+
+    <div class="about-box">
+      <img src="Logo.svg" alt="Company Icon" />
+      <div>
+        <h2>ABOUT SATCHEL POWERTECH</h2>
+        <p>
+          Satchel Powertech Pvt. Ltd. is a fast-growing power technology and renewable
+          energy solutions company, specializing in solar inverter distribution,
+          project support, and technical advisory services.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-box">
+      <img src="Hitachi-logo.svg" alt="Company Icon" />
+      <div>
+        <h2>HITACHI DISTRIBUTOR</h2>
+        <p>
+          We are proud to be appointed as Authorized Distributor of Hitachi Hi-Rel Solar Inverters for North & East India, 
+          supporting projects from 1 kW rooftop systems to multi-MW utility plants. 
+          Backed by Hitachi’s 3+ GW installations in India, we support EPCs, industries and developers with reliable, 
+          high-efficiency inverter solutions.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-box">
+      <img src="icons8-partnership-50.svg" alt="Distributor Icon" />
+      <div>
+        <h2>OUR ROLE AS DISTRIBUTOR</h2>
+        <p>
+          We provide end-to-end distributor support to EPCs, developers, and industries:
+        </p>
+        <ul>
+          <li>Commercial & technical proposal support</li>
+          <li>Model selection & system sizing</li>
+          <li>Order execution & coordination</li>
+          <li>Warranty & service facilitation with Hitachi</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-box">
+      <img src="https://img.icons8.com/ios/50/solar-panel.png" alt="Product Icon" />
+      <div>
+        <h2>HITACHI SOLAR INVERTER RANGE</h2>
+        <p>
+          Delivering world-class Japanese inverter technology for residential,
+          commercial, industrial, and utility-scale solar projects.
+        </p>
+        <ul>
+          <li><strong>String Inverters:</strong> 1.1 kW – 255 kW</li>
+          <li><strong>Central Inverters:</strong> 250 kW – 2.5 MW</li>
+          <li><strong>Outdoor Utility Inverters:</strong> 1500 VDC, IP54 / IP66</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="about-box">
+      <img src="https://img.icons8.com/warranty" alt="Strength Icon" />
+      <div>
+        <h2>KEY STRENGTHS</h2>
+        <ul>
+          <li>Made in India – Hitachi Sanand Manufacturing Facility</li>
+          <li>Up to 98.8% High Conversion Efficiency</li>
+          <li>Advanced LVRT / ZVRT Grid Compliance</li>
+          <li>Pan-India Service Network</li>
+          <li>Fast Spare Parts Availability</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!--Hitachi Invertors-->
+  <section id="hitachi-inverters" class="info-section">
+  <h1 class="section-title">Hitachi Grid Tied Solar Inverters</h1>
+
+  <p class="section-description">
+    Hitachi Hi-Rel Solar Inverters are engineered using advanced Japanese
+    power electronics technology and manufactured in India under strict
+    quality systems.
+  </p>
+
+  <p class="section-description">
+    With over <strong>5 GW global</strong> and <strong>3+ GW installations in India</strong>,
+    Hitachi solar inverters deliver unmatched reliability, high efficiency,
+    and superior grid compliance for all solar applications.
+  </p>
+
+  <div class="summary-grid-dealership">
+    <div class="summary-card-dealership">
+      <h4>Japanese Technology</h4>
+      <p>Advanced Power Electronics</p>
+    </div>
+    <div class="summary-card-dealership">
+      <h4>Made in India</h4>
+      <p>Hitachi Hi-Rel Manufacturing</p>
+    </div>
+    <div class="summary-card-dealership">
+      <h4>Proven Scale</h4>
+      <p>5+ GW Global Installations</p>
+    </div>
+  </div>
+  </section>
+
+  <section id="string-inverters" class="info-section">
+  <h1 class="section-title">Hitachi Solar String Inverters</h1>
+  <h3>1.1 kW – 255 kW</h3>
+
+  <p class="section-description">
+    Hitachi Solar String Inverters are ideal for distributed solar applications,
+    offering high efficiency, flexible system design, and robust outdoor protection.
+  </p>
+
+  <h2>Ideal For</h2>
+  <ul class="feature-list">
+    <li>Residential rooftops</li>
+    <li>Commercial buildings</li>
+    <li>Industrial rooftops</li>
+    <li>Open access solar plants</li>
+  </ul>
+
+  <h2>Key Features</h2>
+  <ul class="feature-list">
+    <li>Efficiency up to <strong>98.8%</strong></li>
+    <li>Wide DC input voltage range (250V – 1300V)</li>
+    <li>Up to 12 MPPTs</li>
+    <li>IP65 / IP66 enclosure for outdoor installation</li>
+    <li>Advanced grid support (LVRT / ZVRT)</li>
+    <li>Remote monitoring via Wi-Fi / GPRS / Ethernet</li>
+  </ul>
+
+  <h2>Available Ratings</h2>
+  <p class="rating-line">
+    1.1 kW | 3 kW | 5 kW | 10 kW | 20 kW | 50 kW | 100 kW | 250 kW
+  </p>
+
+  <div class="cta-buttons">
+    <a href="Sample PDF.pdf" class="btn-primary" download = "Satchel_Technical_Datasheet">Download Technical Datasheet</a>
+    <a href="Sample PDF.pdf" class="btn-secondary" download="Satchel_Price">Get Price & Delivery</a>
+  </div>
+  </section>
+
+  <section id="central-inverters" class="info-section">
+  <h1 class="section-title">Hitachi Central Solar Inverters</h1>
+  <h3>250 kW – 2.5 MW</h3>
+
+  <p class="section-description">
+    Hitachi Central Solar Inverters are designed for large-scale and utility-grade
+    solar power plants, delivering maximum energy yield, excellent grid compliance,
+    and long-term reliability.
+  </p>
+
+  <h2>Designed For</h2>
+  <ul class="feature-list">
+    <li>Utility scale solar parks</li>
+    <li>Large industrial solar plants</li>
+    <li>Multi-MW open access projects</li>
+  </ul>
+
+  <h2>Highlights</h2>
+  <ul class="feature-list">
+    <li>3-Level PWM inverter technology</li>
+    <li>DC overloading capability up to <strong>140% – 200%</strong></li>
+    <li>Low current harmonic distortion THDi (&lt; 3%)</li>
+    <li>Reactive power control (day & night)</li>
+    <li>SCADA integration ready</li>
+    <li>Containerized solutions available</li>
+  </ul>
+
+  <h2>Available Ratings</h2>
+  <p class="rating-line">
+    250 kW | 500 kW | 630 kW | 1 MW | 1.25 MW | 2.5 MW
+  </p>
+
+  <div class="cta-buttons">
+    <a href="#" class="btn-primary">Download Technical Datasheet</a>
+    <a href="#contact" class="btn-secondary">Request Price</a>
+  </div>
+  </section>
+  <!--Hitachi Invertors End-->
+
+  <div class="image-row">
+    <img src="Solar_Inverter_2.png" alt="Solar Panel">
+    <img src="Solar_Inverter_3.png" alt="Solar Panel">
+    <img src="Inverter1.png" alt="Solar Panel">
+  </div>
+
+<section id="services">
+  <h1 class="section-title">Our Services</h1>
+
+  <div class="carousel-container">
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+
+    <div class="carousel-track">
+      <div class="service-step">
+        <img src="https://img.icons8.com/ios/50/home.png" alt="Assistance" />
+        <h2>Pre-Sale Assistance</h2>
+        <p>We provide expert guidance to EPCs, developers, and clients during the planning stage, helping them understand Hitachi inverter technology, 
+        capabilities, and suitability for their solar projects. This ensures informed decisions before purchase.</p>
+      </div>
+
+      <div class="service-step">
+        <img src="https://img.icons8.com/ios/50/inspection.png" alt="Model Selection" />
+        <h2>Model Selection</h2>
+        <p>We assist in selecting the right Hitachi inverter model based on system size, load requirements, and site conditions. 
+        Additionally, we support EPCs with system design recommendations, ensuring optimal energy output and compliance with technical standards.</p>
+      </div>
+
+      <div class="service-step">
+        <img src="https://img.icons8.com/ios/50/agreement.png" alt="Commissioning Coordination" />
+        <h2>Commissioning Coordination</h2>
+        <p>Acting as a liaison between the installer/EPC and Hitachi, we ensure the inverter system is installed and configured 
+        according to manufacturer specifications. This includes verifying setup, connections, and system parameters, coordinating 
+        technical support if needed, and ensuring a smooth handover to the client.</p>
+      </div>
+
+      <div class="service-step">
+        <img src="https://img.icons8.com/warranty" alt="Warranty" />
+        <h2>Warranty & AMC Facilitation</h2>
+        <p>We manage all documentation and processes required to activate Hitachi warranties and 
+          Annual Maintenance Contracts (AMCs). This ensures clients and EPCs can access timely service 
+          and support throughout the inverter’s lifecycle.</p>
+      </div>
+
+      <div class="service-step">
+        <img src="https://img.icons8.com/ios/50/support.png" alt="Service & Support" />
+        <h2>Service & Support</h2>
+        <p>Leveraging Hitachi’s nationwide service network, we help clients and EPCs access authorized 
+          service centers, troubleshooting support, and spare parts anywhere in India, 
+          ensuring long-term system reliability and performance.</p>
+      </div>
+    </div>
+
+    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+  </div>
+</section>
+
+<section id="applications">
+  <h1 class="section-title">Applications We Serve</h1>
+  <p>Satchel Powertech Pvt. Ltd., as an Authorized Distributor of Hitachi Solar Inverters, supports a wide range of solar applications:</p>
+  <ul class="applications-list">
+    <li>🏠 Residential Rooftop Solar Systems</li>
+    <li>🏢 Commercial Buildings & Malls</li>
+    <li>🏭 Industrial Manufacturing Units</li>
+    <li>⚡ Utility Scale Solar Power Plants / Parks</li>
+    <li>🌱 Open Access & Captive Solar Projects</li>
+    <li>🚆 Infrastructure, Institutional & Railways Projects</li>
+  </ul>
+</section>
+
+<section id="why-choose">
+  <h1 class="section-title">Why Opt Us</h1>
+
+  <div class="about-container">
+
+    <div class="about-box">
+      <img src="Logo.svg" alt="Satchel" />
+      <div>
+        <h2>Why Satchel Powertech?</h2>
+        <ul>
+        <li>Dedicated North & East India distributor</li>
+        <li>Faster response & delivery</li>
+        <li>Pre-sales engineering support</li>
+        <li>Single point coordination with Hitachi</li>
+        <li>EPC-friendly commercial terms</li>
+      </ul>
+      </div>
+    </div>
+
+    <div class="about-box">
+      <img src="Hitachi-logo.svg" alt="Hitachi" />
+      <div>
+        <h2>Why Choose Hitachi Solar Inverters?</h2>
+        <ul>
+        <li>40+ years in power electronics</li>
+        <li>Global Fortune-500 parentage</li>
+        <li>Made-in-India manufacturing</li>
+        <li>Proven MW-scale performance</li>
+        <li>Long-term reliability</li>
+      </ul>
+      </div>
+    </div>
+  </div> 
+</section>
+
+<section id="references">
+  <h1 class="section-title">References</h1>
+  <p class="section-description">
+    Hitachi Hi-Rel Grid Tied Solar Inverters have been deployed in some of the largest and most
+    critical solar power projects in India, demonstrating proven performance, reliability,
+    and grid compliance. Satchel Powertech Pvt. Ltd., as an Authorized Distributor, supports
+    similar projects across North & East India.
+  </p>
+
+  <div class="projects-carousel-container">
+    <button class="carousel-btn prev" aria-label="Previous project">❮</button>
+
+    <div class="projects-carousel-track">
+      <!-- Project Slide 1 -->
+      <div class="project-slide">
+        <h2>Adani – Kamuthi Solar Power Project</h2>
+        <span class="project-location">Tamil Nadu | Utility Scale</span>
+        <ul>
+          <li>⚡ Capacity: <strong>360 MW</strong></li>
+          <li>🔌 Inverter Type: Hitachi Central Inverters</li>
+          <li>📌 Status: Commissioned</li>
+          <li>🌍 Significance: One of the world’s largest single-location solar plants</li>
+        </ul>
+      </div>
+
+      <!-- Project Slide 2 -->
+      <div class="project-slide">
+        <h2>NTPC – Mandsaur Solar Project</h2>
+        <span class="project-location">Madhya Pradesh | Utility Scale</span>
+        <ul>
+          <li>⚡ Capacity: <strong>230 MW</strong></li>
+          <li>🔌 Inverter Type: Hitachi Central Inverters</li>
+          <li>🏢 Client: NTPC Limited</li>
+        </ul>
+      </div>
+
+      <!-- Project Slide 3 -->
+      <div class="project-slide">
+        <h2>NTPC – Bhadla Solar Project</h2>
+        <span class="project-location">Rajasthan | Utility Scale</span>
+        <ul>
+          <li>⚡ Capacity: <strong>195 MW</strong></li>
+          <li>🔌 Inverter Type: Hitachi Grid Tied Inverters</li>
+        </ul>
+      </div>
+
+      <!-- Project Slide 4 -->
+      <div class="project-slide">
+        <h2>GIPCL Solar Project</h2>
+        <span class="project-location">Gujarat | Utility Scale</span>
+        <ul>
+          <li>⚡ Capacity: <strong>155 MW</strong></li>
+          <li>🔌 Inverter Type: Hitachi Central Inverters</li>
+        </ul>
+      </div>
+
+      <!-- Project Slide 5 -->
+      <div class="project-slide">
+        <h2>NTPC – Anantapur Solar Project</h2>
+        <span class="project-location">Andhra Pradesh | Utility Scale</span>
+        <ul>
+          <li>⚡ Capacity: <strong>150 MW</strong></li>
+          <li>🔌 Inverter Type: Hitachi Solar Inverters</li>
+        </ul>
+      </div>
+
+      <!-- Additional Commercial & Industrial Projects -->
+      <div class="project-slide">
+        <h2>ReNew Power</h2>
+        <span class="project-location">Commercial & Industrial</span>
+        <ul>
+          <li>⚡ Capacity: <strong>50 MW</strong></li>
+          <li>🏭 Application: Utility & C&I Solar</li>
+          <li>🔌 Inverter Type: Hitachi Central / String Inverters</li>
+        </ul>
+      </div>
+
+      <div class="project-slide">
+        <h2>ACME Solar</h2>
+        <span class="project-location">Commercial & Industrial</span>
+        <ul>
+          <li>⚡ Capacity: <strong>25 MW</strong></li>
+          <li>🔌 Inverter Type: Hitachi Solar Inverters</li>
+        </ul>
+      </div>
+
+      <div class="project-slide">
+        <h2>Rays Infra</h2>
+        <span class="project-location">Commercial & Industrial</span>
+        <ul>
+          <li>⚡ Capacity: <strong>50 MW</strong></li>
+          <li>🔌 Inverter Type: Hitachi Grid Tied Inverters</li>
+        </ul>
+      </div>
+
+      <div class="project-slide">
+        <h2>NLC India Limited</h2>
+        <span class="project-location">Commercial & Industrial</span>
+        <ul>
+          <li>⚡ Capacity: <strong>65 MW</strong></li>
+          <li>🔌 Inverter Type: Hitachi Solar Inverters</li>
+        </ul>
+      </div>
+    </div>
+
+    <button class="carousel-btn next" aria-label="Next project">❯</button>
+  </div>
+</section>
+
+<section id="deployments">
+  <h1 class="section-title">Pan-India Deployments & Capabilities</h1>
+
+  <div class="deployments-container">
+
+    <!-- Regional Deployments -->
+    <div class="deploy-box">
+      <h2>📍 Regional Deployments</h2>
+      <ul class="two-column-list">
+        <li>Rajasthan (Bhadla, Jodhpur, Barmer)</li>
+        <li>Madhya Pradesh (Mandsaur)</li>
+        <li>Gujarat (Kamuthi support, GIPCL)</li>
+        <li>Uttar Pradesh</li>
+        <li>Bihar</li>
+        <li>Jharkhand</li>
+        <li>West Bengal</li>
+        <li>Odisha</li>
+        <li>Punjab & Haryana</li>
+        <li>Telangana & Andhra Pradesh</li>
+      </ul>
+    </div>
+
+    <!-- Installed Base -->
+    <div class="deploy-box">
+      <h2>⚡ Installed Base</h2>
+      <ul class="installed-base">
+        <li><strong>3+ GW</strong><span>Installed in India</span></li>
+        <li><strong>5+ GW</strong><span>Installed Globally</span></li>
+      </ul>
+    </div>
+
+    <!-- Typical Projects -->
+    <div class="deploy-box">
+      <h2>🏗 Typical Projects We Support</h2>
+      <ul>
+        <li>Rooftop solar plants (10 kW – 500 kW)</li>
+        <li>Industrial captive solar (500 kW – 5 MW)</li>
+        <li>Open access solar projects</li>
+        <li>Utility scale solar parks</li>
+        <li>Government & institutional installations</li>
+      </ul>
+      <p class="note">(Specific project details available on request)</p>
+    </div>
+
+  </div>
+
+  <!-- Disclaimer -->
+  <p class="section-disclaimer">
+    <strong>Disclaimer:</strong> Project references mentioned above are Hitachi Hi-Rel OEM
+    reference installations. Satchel Powertech Pvt. Ltd. acts as an Authorized Distributor and
+    provides sales, technical and coordination support for Hitachi Solar Inverters.
+  </p>
+</section>
+
+<!--TO DO: ADD Downloads-->
+<section id="downloads">
+  <h1 class="section-title">Downloads</h1>
+
+  <p class="section-description">
+    Access official Hitachi Solar Inverter documents including brochures, technical specifications,
+    compliance certificates, and user manuals. For additional or project-specific documents,
+    please contact our team.
+  </p>
+
+  <div class="downloads-grid">
+
+    <div class="download-card">
+      <span class="download-icon">📘</span>
+      <h3>Product Brochures</h3>
+      <p>Overview of Hitachi solar inverter models, features, and applications.</p>
+      <a href="#" class="download-btn">View / Download</a>
+    </div>
+
+    <div class="download-card">
+      <span class="download-icon">📄</span>
+      <h3>Technical Datasheets</h3>
+      <p>Detailed electrical specifications, efficiency curves, and ratings.</p>
+      <a href="#" class="download-btn">View / Download</a>
+    </div>
+
+    <div class="download-card">
+      <span class="download-icon">📐</span>
+      <h3>Single Line Diagrams</h3>
+      <p>Standard SLDs for utility-scale, C&I, and rooftop solar installations.</p>
+      <a href="#" class="download-btn">View / Download</a>
+    </div>
+
+    <div class="download-card">
+      <span class="download-icon">✅</span>
+      <h3>Compliance Certificates</h3>
+      <p>Grid compliance, IEC certifications, and regulatory approvals.</p>
+      <a href="#" class="download-btn">View / Download</a>
+    </div>
+
+    <div class="download-card">
+      <span class="download-icon">📊</span>
+      <h3>Monitoring Manuals</h3>
+      <p>User guides for inverter monitoring platforms and data logging.</p>
+      <a href="#" class="download-btn">View / Download</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="dealership-form">
+  <div class="form-container">
+
+    <h2>Become a Dealer Today</h2>
+
+    <form method="POST" action="https://script.google.com/macros/s/AKfycbwOvF_PUbB9Mnz5SQUr-VXwSw9AfE3h4P5P1UgvAg1ED6HW1NyDEUYAlKmQ9wVPyx4FBw/exec">
+      <input type="hidden" name="form_type" value="dealership">
+      <!-- BASIC DETAILS -->
+      <label>Your Name <span>*</span></label>
+      <input type="text" name="name" required>
+
+      <label>Company Name <span>*</span></label>
+      <input type="text" name="company_name" required>
+
+      <label>Legal Constitution <span>*</span></label>
+      <select name="legal_constitution" required>
+        <option value="">Select</option>
+        <option>Proprietary Firm</option>
+        <option>Partnership Firm</option>
+        <option>Private Limited Firm</option>
+        <option>Public Limited Firm</option>
+        <option>LLP</option>
+      </select>
+
+      <label>Website</label>
+      <input type="url" name="website" placeholder="https://">
+
+      <label>Company Email <span>*</span></label>
+      <input type="email" name="company_email" required>
+
+      <label>Office Address <span>*</span></label>
+      <input type="text" name="office_address" required>
+
+      <label>Warehouse / Godown Address</label>
+      <input type="text" name="warehouse_address">
+
+      <!-- STATE & CITY -->
+      <label>State <span>*</span></label>
+      <select name="state" required>
+        <option value="">Select</option>
+            <option>Andhra Pradesh</option>
+            <option>Arunachal Pradesh</option>
+            <option>Assam</option>
+            <option>Bihar</option>
+            <option>Chhattisgarh</option>
+            <option>Goa</option>
+            <option>Gujarat</option>
+            <option>Haryana</option>
+            <option>Himachal Pradesh</option>
+            <option>Jharkhand</option>
+            <option>Karnataka</option>
+            <option>Kerala</option>
+            <option>Madhya Pradesh</option>
+            <option>Maharashtra</option>
+            <option>Manipur</option>
+            <option>Meghalaya</option>
+            <option>Mizoram</option>
+            <option>Nagaland</option>
+            <option>Odisha</option>
+            <option>Punjab</option>
+            <option>Rajasthan</option>
+            <option>Sikkim</option>
+            <option>Tamil Nadu</option>
+            <option>Telangana</option>
+            <option>Tripura</option>
+            <option>Uttar Pradesh</option>
+            <option>Uttarakhand</option>
+            <option>West Bengal</option>
+            <option>Andaman & Nicobar Islands</option>
+            <option>Chandigarh</option>
+            <option>Dadra & Nagar Haveli and Daman & Diu</option>
+            <option>Delhi</option>
+            <option>Jammu & Kashmir</option>
+            <option>Ladakh</option>
+            <option>Lakshadweep</option>
+            <option>Puducherry</option>
+      </select>
+      <label>City <span>*</span></label>
+      <input type="text" name="city" required>
+
+      <label>Company Phone <span>*</span></label>
+      <input type="tel" name="phone" required>
+
+      <!-- SOURCE -->
+      <label>How did you hear about us? <span>*</span></label>
+      <select name="source" required>
+        <option value="">Select</option>
+        <option>Website</option>
+        <option>Sales Team</option>
+        <option>Dealer Reference</option>
+        <option>Social Media</option>
+        <option>Other</option>
+      </select>
+
+      <!-- PRODUCTS -->
+      <label>Product Interested In <span>*</span></label>
+      <select name="product_interested" required>
+        <option value="">Select</option>
+        <option>IT & Infra UPS</option>
+        <option>Low Voltage Drives</option>
+        <option>Grid Tied Solar String Inverter</option>
+      </select>
+
+      <!-- ANNUAL TURNOVER -->
+      <label>Annual Turnover <span>*</span></label>
+      <table class="turnover-table">
+        <thead>
+          <tr>
+            <th>Financial Year</th>
+            <th>Turnover (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2024–25</td>
+            <td><input type="number" name="turnover_2024"></td>
+          </tr>
+          <tr>
+            <td>2023–24</td>
+            <td><input type="number" name="turnover_2023"></td>
+          </tr>
+          <tr>
+            <td>2022–23</td>
+            <td><input type="number" name="turnover_2022"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- PARTNERSHIP -->
+      <label>Currently associated with any company? <span>*</span></label>
+      <select name="is_partner" required>
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>Sales Team Strength</label>
+      <textarea name="sales_strength"></textarea>
+
+      <label>Service Team Strength</label>
+      <textarea name="service_strength"></textarea>
+
+      <label>Other Information</label>
+      <textarea name="other_info"></textarea>
+
+      <!-- CONSENT -->
+      <div class="consent">
+        <label class="consent-label">
+          <input type="checkbox" name="consent" required>
+          <span>
+            By clicking Submit, I hereby confirm that the information provided above is true and correct to the best of my knowledge. I expressly consent to Satchel Powertech Pvt. Ltd. collecting, storing, processing, and using my personal and business information for the purpose of evaluating Dealership /Channel Partner opportunities, business communication, and marketing related to solar and renewable energy products, in accordance with the Privacy Policy and applicable laws of India.
+            <a data-link="privacyPolicy" target="_blank">Privacy Policy</a>.
+          </span>
+        </label>
+      </div>
+
+
+      <button type="submit">Submit</button>
+
+    </form>
+  </div>
+</section>
+
+<section id="Contact">
+  <h1 class="section-title">Contact Us</h1>
+
+  <div class="contact-wrapper">
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <div class="contact-item">
+        <img src="website.png" alt="Website Icon" />
+        <strong>Website:</strong>
+        <span>www.satchelpower.com</span>
+      </div>
+
+      <div class="contact-item">
+        <img src="https://img.icons8.com/ios-filled/30/phone.png" alt="Phone Icon" />
+        <strong>Phone:</strong>
+        <span>+91 88004 06355 / +91 93117 16926</span>
+      </div>
+
+      <div class="contact-item">
+        <img src="email.png" alt="Email Icon" />
+        <strong>Email:</strong>
+        <span>Info@SatchelPower.com</span>
+      </div>
+
+      <div class="contact-item">
+        <img src="https://img.icons8.com/ios-filled/30/marker.png" alt="Location Icon" />
+        <strong>Office Address:</strong>
+        <span>
+          Satchel Powertech Pvt. Ltd, Office No. A 409,<br>
+          Plot No. 4, Noida-Greater Noida Expressway,<br>
+          Sector - 132, Noida, UP - 201304
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer / Copyright -->
+  <footer class="contact-footer">
+    &copy; 2026 Satchel Powertech Pvt. Ltd. All Rights Reserved.
+  </footer>
+</section>
+
+<script src="assets/js/links.js"></script>
+<script src="script.js"></script>
+
+  <a 
+  id="whatsappLinkDealer"
+  href="#"
+  class="whatsapp-float"
+  target="_blank"
+>
+  <img src="WhatsappLogo.webp" alt="WhatsApp Chat">
+</a>
+</body>
+</html>
+
+
+
+  
