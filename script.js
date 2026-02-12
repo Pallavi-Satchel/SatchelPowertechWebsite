@@ -56,30 +56,51 @@ document.addEventListener("DOMContentLoaded", () => {
         form.reportValidity();
         return;
       }
+      if (data.website) {
+        throw new Error("Spam detected");
+      }
 
       submitBtn.disabled = true;
       submitBtn.textContent = "Submitting...";
 
+      // fetch(form.action, {
+      //   method: "POST",
+      //   body: new FormData(form)
+      // })
       fetch(form.action, {
-        method: "POST",
-        body: new FormData(form)
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === "success") {
-          successMsg.style.display = "block";
-          form.reset();
-        } else {
-          alert("Submission failed. Please try again.");
-        }
-      })
-      .catch(() => {
-        alert("Network error. Please try again.");
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Submit";
-      });
+            method: "POST",
+            body: new FormData(form),
+            mode: "no-cors"
+          })
+          .then(() => {
+            successMsg.style.display = "block";
+            form.reset();
+          })
+          .catch(error => {
+            alert("Submission failed. Please try again.");
+            console.error(error);
+          })
+          .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Submit";
+          });
+
+      // .then(res => res.json())
+      // .then(data => {
+      //   if (data.status === "success") {
+      //     successMsg.style.display = "block";
+      //     form.reset();
+      //   } else {
+      //     alert("Submission failed. Please try again.");
+      //   }
+      // })
+      // .catch(() => {
+      //   alert("Network error. Please try again.");
+      // })
+      // .finally(() => {
+      //   submitBtn.disabled = false;
+      //   submitBtn.textContent = "Submit";
+      // });
     });
   });
 
@@ -101,6 +122,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", e => {
       e.preventDefault();
+
+      if (data.website) {
+        throw new Error("Spam detected");
+      }
 
       if (!form.checkValidity()) {
         form.reportValidity();
@@ -211,3 +236,33 @@ function closeMarquee(event) {
  function closeMenu() {
     navLinks?.classList.remove("active");
   }
+
+function openContactModal(product) {
+  selectedProduct = product
+  document.getElementById("contactModal").style.display = "block";
+}
+
+function closeContactModal() {
+  document.getElementById("contactModal").style.display = "none";
+}
+
+function sendToWhatsApp() {
+  const name = document.getElementById("userName").value.trim();
+  const email = document.getElementById("userEmail").value.trim();
+
+  if (!name || !email) {
+    alert("Please fill all fields.");
+    return;
+  }
+
+  const phoneNumber = "9311716926";
+  const countryCode = "91";
+
+  const message = `
+  Hi I am ${name} and my Email ID is ${email}. I visited Satchel PowerTech website and would like pricing details for ${selectedProduct}.
+  `;
+
+  const whatsappURL = `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappURL, "_blank");
+}

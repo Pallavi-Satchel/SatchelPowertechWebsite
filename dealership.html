@@ -50,18 +50,19 @@
     </ul>
   </nav>
 
-  <!-- Customer Page -->
-  <div class="top-marquee" id="topMarquee">
-  <a href="index.html" class="marquee-link">
-    Are you a customer?
-    <span class="click-here">
-      <span class="hand">👉</span> Click here
-    </span>
-  </a>
+  <!--Modal-->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeContactModal()">&times;</span>
 
-  <span class="marquee-close" onclick="closeMarquee(event)">✕</span>
+    <h2>Request Pricing</h2>
+
+    <input type="text" id="userName" placeholder="Your Name" required><br><br>
+    <input type="email" id="userEmail" placeholder="Your Email" required><br><br>
+
+    <button onclick="sendToWhatsApp()" class="modal-button">Continue to WhatsApp</button>
+  </div>
 </div>
-</header>
 
   <!-- Page Sections-->
   <section id="home">
@@ -72,7 +73,7 @@
     <!-- Wrap content in a flex container -->
       <div class="home-content">
         <div class="home-text">
-          <h1>Become our Dealership Partner Today!</h1>
+          <h1>Partner With Satchel Today!</h1>
         </div>
       </div>
   </section>
@@ -221,8 +222,9 @@
   </p>
 
   <div class="cta-buttons">
-    <a href="Sample PDF.pdf" class="btn-primary" download = "Satchel_Technical_Datasheet">Download Technical Datasheet</a>
-    <a href="Sample PDF.pdf" class="btn-secondary" download="Satchel_Price">Get Price & Delivery</a>
+    <a data-link="solarStringInverterTechnicalDatasheet" target="_blank" 
+    download="Grid Tied Solar String Inverter Technical Datasheet" class="btn-primary">Download Technical Datasheet</a>.
+    <button onclick="openContactModal('Grid Tied Solar String Inverter')" class="btn-secondary">Get Price & Delivery</button>
   </div>
   </section>
 
@@ -259,8 +261,10 @@
   </p>
 
   <div class="cta-buttons">
-    <a href="#" class="btn-primary">Download Technical Datasheet</a>
-    <a href="#contact" class="btn-secondary">Request Price</a>
+    <a data-link="solarCentralOutdoorInverterTechnicalDatasheet" target="_blank" 
+    download="Solar Central Outdoor Inverter Technical Datasheet" class="btn-primary">
+    Download Technical Datasheet</a>.
+    <button onclick="openContactModal('Solar Central Outdoor Inverter')" class="btn-secondary">Request Price</button>
   </div>
   </section>
   <!--Hitachi Invertors End-->
@@ -548,7 +552,7 @@
       <span class="download-icon">📘</span>
       <h3>Product Brochures</h3>
       <p>Overview of Hitachi solar inverter models, features, and applications.</p>
-      <a href="#" class="download-btn">View / Download</a>
+      <a data-link="gridTiedInvertersBrochure" target="_blank" download="Grid Tied Solar Inverters Brochure" class = "download-btn">View / Download</a>
     </div>
 
     <div class="download-card">
@@ -587,7 +591,7 @@
 
     <h2>Become a Dealer Today</h2>
 
-    <form method="POST" action="https://script.google.com/macros/s/AKfycbwOvF_PUbB9Mnz5SQUr-VXwSw9AfE3h4P5P1UgvAg1ED6HW1NyDEUYAlKmQ9wVPyx4FBw/exec">
+    <form method="POST" action="https://script.google.com/macros/s/AKfycbzW6HcOFEaP9cIAcQvqUqc3UePJmIy7p4psxdY5Nz_qL1-dKBXuRye9gKWCosneRMKuzA/exec">
       <input type="hidden" name="form_type" value="dealership">
       <!-- BASIC DETAILS -->
       <label>Your Name <span>*</span></label>
@@ -617,6 +621,8 @@
 
       <label>Warehouse / Godown Address</label>
       <input type="text" name="warehouse_address">
+
+      <input type="text" name="website" style="display:none">
 
       <!-- STATE & CITY -->
       <label>State <span>*</span></label>
@@ -680,8 +686,6 @@
       <label>Product Interested In <span>*</span></label>
       <select name="product_interested" required>
         <option value="">Select</option>
-        <option>IT & Infra UPS</option>
-        <option>Low Voltage Drives</option>
         <option>Grid Tied Solar String Inverter</option>
       </select>
 
@@ -761,7 +765,7 @@
       <div class="contact-item">
         <img src="https://img.icons8.com/ios-filled/30/phone.png" alt="Phone Icon" />
         <strong>Phone:</strong>
-        <span>+91 88004 06355 / +91 93117 16926</span>
+        <span>+91 88004 06355 / +91 93117 16926 / +91 93119 44917</span>
       </div>
 
       <div class="contact-item">
@@ -799,6 +803,7 @@
 >
   <img src="WhatsappLogo.webp" alt="WhatsApp Chat">
 </a>
+
 </body>
 </html>
 

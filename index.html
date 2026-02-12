@@ -37,13 +37,13 @@
   </nav>
 
   <!-- Dealership Page -->
-  <div class="top-marquee" id="topMarquee">
+  <!-- <div class="top-marquee" id="topMarquee">
   <a href="dealership.html" class="marquee-link">
     Seeking Dealership?
     <span class="click-here">
       <span class="hand">👉</span> Click here
     </span>
-  </a>
+  </a> -->
 
   <span class="marquee-close" onclick="closeMarquee(event)">✕</span>
 </div>
@@ -64,13 +64,14 @@
 
 <div class="form-container">
 <h2>Book a Free Visit Today!</h2>
-<form class="booking-form" method = "POST" action = "https://script.google.com/macros/s/AKfycbwOvF_PUbB9Mnz5SQUr-VXwSw9AfE3h4P5P1UgvAg1ED6HW1NyDEUYAlKmQ9wVPyx4FBw/exec">
+<form class="booking-form" method = "POST" action = "https://script.google.com/macros/s/AKfycbzW6HcOFEaP9cIAcQvqUqc3UePJmIy7p4psxdY5Nz_qL1-dKBXuRye9gKWCosneRMKuzA/exec">
 <input type="hidden" name="form_type" value="visit_booking">
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="email" name="email" placeholder="Your Email" required>
 <input type="tel" name="phone" placeholder="Your Phone Number" required>
 <input type="text" name="address" placeholder="Address for Installation" required>
 <textarea name="message" placeholder="Additional Details"></textarea>
+<input type="text" name="website" style="display:none">
 <!-- CONSENT -->
 <div class="consent">
     <label class="consent-label">
@@ -372,5 +373,11 @@ Sector - 132, Noida, UP - 201304
 >
   <img src="WhatsappLogo.webp" alt="WhatsApp Chat">
 </a>
+
+<a href="dealership.html" class="dealer-float">
+  <img src="brokerage-icon.svg" class="dealer-icon" alt="Dealer">
+  <span class="dealer-text">Join Our Network</span>
+</a>
+
 </body>
 </html>
