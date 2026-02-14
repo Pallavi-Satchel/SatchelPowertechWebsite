@@ -1,44 +1,118 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ---------- HAMBURGER ---------- */
+  /* =========================================
+     🔐 SECURITY SETUP
+  ========================================= */
+
+  const FORM_LOAD_TIME = Date.now();
+
+  // Generate dynamic token per page load
+  function generateAuthToken() {
+    return "satchel_secure_2026_" + FORM_LOAD_TIME;
+  }
+
+  // Basic bot detection (blocks headless browsers)
+  function isBotEnvironment() {
+    return (
+      navigator.webdriver ||
+      !navigator.language ||
+      navigator.plugins.length === 0
+    );
+  }
+
+  /* =========================================
+     🍔 HAMBURGER MENU
+  ========================================= */
+
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.getElementById("navLinks");
 
   if (hamburger && navLinks) {
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
-  }
-  function toggleMenu() {
-    navLinks?.classList.toggle("active");
-  }
-
-  const menuLogo = document.querySelector(".menu-logo");
-  menuLogo?.addEventListener("click", closeMenu);
-
-  const marquee = document.getElementById("topMarquee");
-  if (marquee) {
-    document.body.classList.add("has-marquee");
-  }
-
-  /* Common Links Handling */
-  if (window.SATCHEL_LINKS) {
-    document.querySelectorAll("a[data-link]").forEach(el => {
-      const key = el.getAttribute("data-link");
-      if (window.SATCHEL_LINKS[key]) {
-        el.href = window.SATCHEL_LINKS[key];
-      }
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
     });
-  } else {
-    console.warn("SATCHEL_LINKS not defined");
   }
 
-  /* ---------- CUSTOMER FORM ---------- */
-  document.querySelectorAll(".booking-form").forEach(form => {
+  function closeMenu() {
+    navLinks?.classList.remove("active");
+  }
+
+  document.querySelector(".menu-logo")?.addEventListener("click", closeMenu);
+
+
+  /* =========================================
+     📩 COMMON FORM HANDLER
+  ========================================= */
+
+  async function handleFormSubmit(form, successMsg) {
+
+    if (isBotEnvironment()) {
+      alert("Bot activity detected.");
+      return;
+    }
 
     const submitBtn = form.querySelector("button[type='submit']");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
 
-    // Create success message
+    try {
+      const formData = new FormData(form);
+
+      // Add timestamp from page load (not submit click)
+      formData.set("timestamp", FORM_LOAD_TIME);
+
+      // Add dynamic auth token
+      formData.set("auth_token", generateAuthToken());
+
+      // Get reCAPTCHA
+      const captchaResponse = grecaptcha.getResponse();
+
+      if (!captchaResponse) {
+        alert("Please complete the captcha.");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit";
+        return;
+      }
+
+      formData.set("g-recaptcha-response", captchaResponse);
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        successMsg.style.display = "block";
+        form.reset();
+        grecaptcha.reset();
+      } else if (result.status === "too_many_requests") {
+        alert("Please wait before submitting again.");
+      } else if (result.status === "captcha_failed") {
+        alert("Captcha verification failed. Please try again.");
+        grecaptcha.reset();
+      } else {
+        alert("Submission failed: " + result.status);
+        console.log("Server returned:", result);
+      }
+
+    } catch (error) {
+      console.error(error);
+      alert("Network error. Please try again.");
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Submit";
+  }
+
+
+  /* =========================================
+     🏠 CUSTOMER BOOKING FORM
+  ========================================= */
+
+  document.querySelectorAll(".booking-form").forEach(form => {
+
     const successMsg = document.createElement("div");
     successMsg.style.display = "none";
     successMsg.style.marginTop = "12px";
@@ -49,66 +123,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.appendChild(successMsg);
 
-    form.addEventListener("submit", e => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
 
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
-      if (data.website) {
-        throw new Error("Spam detected");
-      }
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Submitting...";
-
-      // fetch(form.action, {
-      //   method: "POST",
-      //   body: new FormData(form)
-      // })
-      fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            mode: "no-cors"
-          })
-          .then(() => {
-            successMsg.style.display = "block";
-            form.reset();
-          })
-          .catch(error => {
-            alert("Submission failed. Please try again.");
-            console.error(error);
-          })
-          .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Submit";
-          });
-
-      // .then(res => res.json())
-      // .then(data => {
-      //   if (data.status === "success") {
-      //     successMsg.style.display = "block";
-      //     form.reset();
-      //   } else {
-      //     alert("Submission failed. Please try again.");
-      //   }
-      // })
-      // .catch(() => {
-      //   alert("Network error. Please try again.");
-      // })
-      // .finally(() => {
-      //   submitBtn.disabled = false;
-      //   submitBtn.textContent = "Submit";
-      // });
+      successMsg.style.display = "none";
+      handleFormSubmit(form, successMsg);
     });
   });
 
-  /* ---------- DEALERSHIP FORM ---------- */
-  const dealerFormWrapper = document.querySelector("#dealership-form");
-  if (dealerFormWrapper) {
-    const form = dealerFormWrapper.querySelector("form");
-    const submitBtn = form.querySelector("button[type='submit']");
+
+  /* =========================================
+     🏢 DEALERSHIP FORM
+  ========================================= */
+
+  const dealerWrapper = document.querySelector("#dealership-form");
+
+  if (dealerWrapper) {
+    const form = dealerWrapper.querySelector("form");
 
     const successMsg = document.createElement("div");
     successMsg.style.display = "none";
@@ -120,45 +156,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.appendChild(successMsg);
 
-    form.addEventListener("submit", e => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-
-      if (data.website) {
-        throw new Error("Spam detected");
-      }
 
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Submitting...";
-
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form)
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === "success") {
-          successMsg.style.display = "block";
-          form.reset();
-        } else {
-          alert("Submission failed.");
-        }
-      })
-      .catch(() => alert("Network error"))
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Submit";
-      });
+      successMsg.style.display = "none";
+      handleFormSubmit(form, successMsg);
     });
-  }
+  }});
 
 
-  /* ---------- SERVICES CAROUSEL ---------- */
+  /* =========================================
+     🎞 SERVICES CAROUSEL
+  ========================================= */
+
   const track = document.querySelector(".carousel-track");
+
   if (track) {
     const slides = Array.from(track.children);
     let index = 0;
@@ -171,74 +188,65 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* ---------- PROJECTS CAROUSEL ---------- */
+  /* =========================================
+     🏗 PROJECTS CAROUSEL
+  ========================================= */
+
   const projectTrack = document.querySelector(".projects-carousel-track");
+
   if (projectTrack) {
-    const projectSlides = Array.from(projectTrack.children);
-    let projectIndex = 0;
+    const slides = Array.from(projectTrack.children);
+    let index = 0;
 
     const prev = document.querySelector(".projects-carousel-container .prev");
     const next = document.querySelector(".projects-carousel-container .next");
 
-    function moveProjectSlide(dir) {
-      projectIndex = (projectIndex + dir + projectSlides.length) % projectSlides.length;
-      const w = projectSlides[0].getBoundingClientRect().width;
-      projectTrack.style.transform = `translateX(-${projectIndex * w}px)`;
+    function moveSlide(dir) {
+      index = (index + dir + slides.length) % slides.length;
+      const w = slides[0].getBoundingClientRect().width;
+      projectTrack.style.transform = `translateX(-${index * w}px)`;
     }
 
-    prev?.addEventListener("click", () => moveProjectSlide(-1));
-    next?.addEventListener("click", () => moveProjectSlide(1));
+    prev?.addEventListener("click", () => moveSlide(-1));
+    next?.addEventListener("click", () => moveSlide(1));
 
-    setInterval(() => moveProjectSlide(1), 10000);
+    setInterval(() => moveSlide(1), 10000);
   }
 
 
-  /* ---------- WHATSAPP ---------- */
+  /* =========================================
+     💬 WHATSAPP LINKS
+  ========================================= */
+
   const phoneNumber = "9311716926";
   const countryCode = "91";
 
-  const isCustomer = document.getElementById("whatsappLinkCustomer");
-  const isDealer = document.getElementById("whatsappLinkDealer");
+  const customerLink = document.getElementById("whatsappLinkCustomer");
+  const dealerLink = document.getElementById("whatsappLinkDealer");
 
-  if (isCustomer) {
-    isCustomer.href =
+  if (customerLink) {
+    customerLink.href =
       `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(
         "Hi, I am a Customer, I visited Satchel PowerTech website and want to know more"
       )}`;
   }
 
-  if (isDealer) {
-    isDealer.href =
+  if (dealerLink) {
+    dealerLink.href =
       `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(
         "Hi, I am a Dealer, I visited Satchel PowerTech website and want to know more"
       )}`;
   }
-});
 
-/* ---------- CLOSE MARQUEE ---------- */
-function closeMarquee(event) {
-  event.preventDefault();
-  event.stopPropagation();
 
-  const marquee = document.getElementById("topMarquee");
-  const home = document.getElementById("home");
+/* =========================================
+   📞 CONTACT MODAL
+========================================= */
 
-  if (!marquee || !home) return;
-
-  const h = marquee.offsetHeight;
-
-  marquee.style.display = "none";
-
-  // remove layout space instead of visual transform
-  home.style.marginTop = `-${h}px`;
-}
-
- function closeMenu() {
-    navLinks?.classList.remove("active");
-  }
+let selectedProduct = "";
 
 function openContactModal(product) {
-  selectedProduct = product
+  selectedProduct = product;
   document.getElementById("contactModal").style.display = "block";
 }
 
@@ -258,11 +266,12 @@ function sendToWhatsApp() {
   const phoneNumber = "9311716926";
   const countryCode = "91";
 
-  const message = `
-  Hi I am ${name} and my Email ID is ${email}. I visited Satchel PowerTech website and would like pricing details for ${selectedProduct}.
-  `;
+  const message =
+    `Hi I am ${name} and my Email ID is ${email}. ` +
+    `I visited Satchel PowerTech website and would like pricing details for ${selectedProduct}.`;
 
-  const whatsappURL = `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappURL =
+    `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   window.open(whatsappURL, "_blank");
 }

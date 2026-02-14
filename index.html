@@ -6,6 +6,7 @@
 <title>Satchel Powertech</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="style.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 <header class="header-wrapper">
@@ -64,14 +65,18 @@
 
 <div class="form-container">
 <h2>Book a Free Visit Today!</h2>
-<form class="booking-form" method = "POST" action = "https://script.google.com/macros/s/AKfycbzW6HcOFEaP9cIAcQvqUqc3UePJmIy7p4psxdY5Nz_qL1-dKBXuRye9gKWCosneRMKuzA/exec">
+<form class="booking-form" method = "POST" action = "https://script.google.com/macros/s/AKfycbyBMGHCKrAlYQEj8GVt1D7hJJ-MFdGEvHthNz9qSdeDeEQb3BtI4KoFl3086RYS3WB9/exec">
 <input type="hidden" name="form_type" value="visit_booking">
+
+<!-- Security Hidden Fields -->
+<input type="hidden" name="hidden_field" value="">
+<input type="hidden" name="auth_token" value="satchel_secure_2026">
+
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="email" name="email" placeholder="Your Email" required>
 <input type="tel" name="phone" placeholder="Your Phone Number" required>
 <input type="text" name="address" placeholder="Address for Installation" required>
 <textarea name="message" placeholder="Additional Details"></textarea>
-<input type="text" name="website" style="display:none">
 <!-- CONSENT -->
 <div class="consent">
     <label class="consent-label">
@@ -82,6 +87,9 @@
         </span>
     </label>
 </div>
+<!-- reCAPTCHA -->
+<div class="g-recaptcha" data-sitekey="6LcDU2ssAAAAAOF8G5R1wxaBODAVyXOMOaCPIo_m"></div>
+
 <button type="submit">Book Now</button>
 </form>
 </div>
