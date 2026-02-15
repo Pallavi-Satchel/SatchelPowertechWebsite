@@ -1,4 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
+    /* =========================================
+     💬 WHATSAPP LINKS
+    ========================================= */
+
+    const phoneNumber = "9311716926";
+    const countryCode = "91";
+
+    const customerLink = document.getElementById("whatsappLinkCustomer");
+    const dealerLink = document.getElementById("whatsappLinkDealer");
+
+    if (customerLink) {
+      customerLink.href =
+        `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(
+          "Hi, I am a Customer, I visited Satchel PowerTech website and want to know more"
+        )}`;
+    }
+
+    if (dealerLink) {
+      dealerLink.href =
+        `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(
+          "Hi, I am a Dealer, I visited Satchel PowerTech website and want to know more"
+        )}`;
+    }
+
   // Find all anchor tags with data-link
   document.querySelectorAll("a[data-link]").forEach(anchor => {
     const key = anchor.getAttribute("data-link");
@@ -224,32 +248,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setInterval(() => moveSlide(1), 10000);
   }
-
-
-  /* =========================================
-     💬 WHATSAPP LINKS
-  ========================================= */
-
-  const phoneNumber = "9311716926";
-  const countryCode = "91";
-
-  const customerLink = document.getElementById("whatsappLinkCustomer");
-  const dealerLink = document.getElementById("whatsappLinkDealer");
-
-  if (customerLink) {
-    customerLink.href =
-      `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(
-        "Hi, I am a Customer, I visited Satchel PowerTech website and want to know more"
-      )}`;
-  }
-
-  if (dealerLink) {
-    dealerLink.href =
-      `https://wa.me/${countryCode}${phoneNumber}?text=${encodeURIComponent(
-        "Hi, I am a Dealer, I visited Satchel PowerTech website and want to know more"
-      )}`;
-  }
-
 
 /* =========================================
    📞 CONTACT MODAL
