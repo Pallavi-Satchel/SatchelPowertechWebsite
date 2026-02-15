@@ -80,7 +80,7 @@ html, body {
 }
 
 /* Hide text on desktop until hover */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .dealer-text {
     max-width: 0;
     overflow: hidden;
@@ -91,7 +91,33 @@ html, body {
   .dealer-float:hover .dealer-text {
     max-width: 200px;
   }
+} */
+@media (max-width: 768px) {
+  .dealer-float {
+    right: 20px;
+    bottom: 20px;      /* above WhatsApp */
+    padding: 12px;
+    font-size: 16px;
+    gap: 0;            /* remove gap */
+    width: 60px;       /* shrink to content */
+    display: inline-flex; /* keeps icon aligned */
+    justify-content: flex-end; /* push icon to right */
+    align-items: center;
+  }
+
+  .dealer-text {
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.3s ease;
+  }
+
+  .dealer-float img {
+    width: 40px;
+    height: 40px;
+  }
 }
+
 
 /* Top marquee / announcement bar */
 /* --- Top Marquee --- */
@@ -820,6 +846,9 @@ th {
 
 
 @media (max-width: 768px) {
+  #home{
+    padding-top: 0%;
+  }
   .carousel-btn {
     font-size: 1.5rem;
     padding: 8px 12px;
@@ -1108,7 +1137,7 @@ word-break: break-word;
   }
 
   body {
-    padding-top: 120px; /* navbar + marquee */
+    padding-top: 60px; /* navbar + marquee */
   }
 
   .logo img {

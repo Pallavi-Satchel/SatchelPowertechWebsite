@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Find all anchor tags with data-link
+  document.querySelectorAll("a[data-link]").forEach(anchor => {
+    const key = anchor.getAttribute("data-link");
+    if (links[key]) {
+      anchor.href = links[key];
+    } else {
+      console.warn(`No link found for key: ${key}`);
+    }
+  });
 
   /* =========================================
      🔐 SECURITY SETUP
@@ -33,11 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function closeMenu() {
+  const closeBtn = document.querySelector(".close-btn");
+  closeBtn?.addEventListener("click", () => {
     navLinks?.classList.remove("active");
-  }
+  });
 
-  document.querySelector(".menu-logo")?.addEventListener("click", closeMenu);
+  document.querySelector(".menu-logo")?.addEventListener("click", () => {
+    navLinks?.classList.remove("active");
+  });
 
 
   /* =========================================
